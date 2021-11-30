@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html class="page" lang="ru">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Todo</title>
+</head>
+
+<body>
+    <div class="main-wrapper">
+        <header class="header">
+            <h1 class="header__title container">
+                True - ToDo
+            </h1>
+        </header>
+        <main class="main container">
+            <section class="tasks">
+                <form action="" class="tasks__form form">
+                    <fieldset class="form__element">
+                        <label class="form__label" for="task">Введите задачу</label>
+                        <div class="input-wrapper">
+                            <input id="task" name="task" type="text" placeholder="Новая задача" maxlength="120"
+                                tabindex="0">
+                            <button class="form__addbutton" type="button" tabindex="0"></button>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form__element">
+                        <label class="form__label form__label-select" for="type" tabindex="0">Тип задачи</label>
+                        <select id="type" name="type">
+                            <option value="everyday" selected>Ежедневная</option>
+                            <option value="not-urgent">Не срочная</option>
+                        </select>
+                    </fieldset>
+                </form>
+            </section>
+            <section class="tasks-containers">
+                <div class="tasks-containers__container tasks-containers__container-everyday">
+                    <h2 class="tasks-containers__title">Задачи на каждый день.</h2>
+                    <ul id="everyday" class="tasks-containers__task-list"></ul>
+                </div>
+                <div class="tasks-containers__container tasks-containers__container-not-urgent">
+                    <h2 class="tasks-containers__title">Задачи на несколько дней.</h2>
+                    <ul id="not-urgent" class="tasks-containers__task-list not-urgent-tasks"></ul>
+                </div>
+                <!--<div class="tasks-containers__container tasks-containers__container-long-term">
+                    <h2 class="tasks-containers__title">Задачи на месяц-год и больше.</h2>
+                    <ul class="tasks-containers__task-list long-term-tasks">
+
+                    </ul>
+                </div>-->
+            </section>
+            <section class="garbage">
+                <div class="garbage__container"></div>
+            </section>
+        </main>
+        <footer>
+            Подвал и что то в нем
+            <!--<p>
+                <div>Автор иконок: <a href="https://www.flaticon.com/ru/authors/dinosoftlabs"
+                        title="DinosoftLabs">DinosoftLabs</a> from <a href="https://www.flaticon.com/ru/"
+                        title="Flaticon">www.flaticon.com</a></div>
+            </p>-->
+        </footer>
+    </div>
+    <template id="task-template">
+        <li class="tasks-containers__task" draggable="true">
+            <span class="tasks-containers__count"></span>
+            <p class="tasks-containers__sub-title"></p>
+            <button class="tasks-containers-task__delete"></button>
+        </li>
+    </template>
+    <script src="js/main.js" type="module"></script>
+</body>
