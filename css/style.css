@@ -236,7 +236,7 @@ body {
 	background-color: transparent;
  	background-position: 0 0;
   	background-repeat: no-repeat;
-	background-image: url(../images/mini-basket.svg);
+	background-image: url("../images/mini-basket.svg");
 }
 
 .tasks-containers__task:hover .tasks-containers-task__delete {
@@ -254,7 +254,7 @@ body {
 	background-color: transparent;
  	background-position: 0 0;
   	background-repeat: no-repeat;
-	background-image: url(../images/bin.png);
+	background-image: url("../images/bin.png");
 	background-size: contain;
 }
 
@@ -264,7 +264,7 @@ body {
 	background-color: transparent;
  	background-position: 0 0;
   	background-repeat: no-repeat;
-	background-image: url(../images/hover-bin.png);
+	background-image: url("../images/hover-bin.png");
 	background-size: contain;
 	transition: all 0.3s ease 0s;
 }
