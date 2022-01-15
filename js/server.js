@@ -1,5 +1,4 @@
-const API_KEY = '5ecb0dc184c9aa594061205b396399d9';
-
+import {API_KEY} from "./config_keys.js";
 const placeInfoLoad = async (query) => {
 
   return await fetch(
