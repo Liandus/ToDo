@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/leaflet.css">
+    <link rel="stylesheet" href="leaflet-routing-machine-3.2.12/dist/leaflet-routing-machine.css">
     <title>Todo</title>
 </head>
 
@@ -53,15 +55,95 @@
             <section class="garbage">
                 <div class="garbage__container"></div>
             </section>
+            <section class="vacation-holiday">
+                <h2 class="vacation-holiday__title"> Планирование отпуска или выходного</h2>
+                <div class="vacation-holiday__map-wrapper">
+                        <div class="vacation-holiday__map" id="map"></div>
+                    <div class="vacation-holiday__map-controls map-controls">
+                        <p class="map-controls__distance">Длинна маршрута <span id="distance"></span></p>
+                        <button type="button" id="delete-pins">Стереть метки</button>
+                        <button type="button" id="save-rout">Сохранить маршрут</button>
+
+                        <p class="map-controls__from-to">
+                            <label class="map-controls__label" for="from-point">Откуда:</label>
+                            <input type="text" name="from-point" id="from-point">
+                        </p>
+                        <p class="map-controls__from-to">
+                            <label class="map-controls__label" for="to-point">Куда:</label>
+                            <input type="text" name="to-point" id="to-point">
+                        </p>
+                    </div>
+                    <form action="" class="vacation-holiday__form form">
+                        <fieldset class="form__element form__element-date">
+                            <label class="form__label" for="start-date">Выберитe начальную дату:</label>
+                            <input id="start-date" name="start-date" type="date" tabindex="0">
+                            <label class="form__label" for="end-date">Выберитe конечную дату:</label>
+                            <input id="end-date" name="end-date" type="date" tabindex="0">
+                        </fieldset>
+                        <fieldset class="form__element form__element-destination">
+                            <label class="form__label" for="destination">Выберите место отдыха:</label>
+                            <input id="destination" name="destination" type="text" tabindex="0"
+                                placeholder="Например: Казань">
+                            <button id="search" class="form__button" type="button">Выбрать</button>
+                        </fieldset>
+                        <button class="form__submit" type="submit">Создать отдых!</button>
+                    </form>
+                    <div class="vacation-holiday__days">
+                        <h3 class="vacation-holiday__sub-title show">Создайте отдых!</h3>
+                        <div id="tabs" class="hidden">
+                            <!--<div class="vacation-holiday__tab"><span id="count-days"></span> день</div>
+                            <div class="vacation-holiday__tab-content tab-content hide"></div>-->
+                        </div>
+                    </div>
+                </div>
+            </section>
         </main>
         <footer>
             Подвал и что то в нем
-            <!--<p>
-                <div>Автор иконок: <a href="https://www.flaticon.com/ru/authors/dinosoftlabs"
-                        title="DinosoftLabs">DinosoftLabs</a> from <a href="https://www.flaticon.com/ru/"
-                        title="Flaticon">www.flaticon.com</a></div>
-            </p>-->
         </footer>
+        <section class="modal-weather hidden">
+            <ul class="modal-weather__daylist">
+                <li class="modal-weather__day"><span class="day-date"></span></li>
+                <li class="modal-weather__day"><span class="day-date"></span></li>
+                <li class="modal-weather__day"><span class="day-date"></span></li>
+                <li class="modal-weather__day"><span class="day-date"></span></li>
+                <li class="modal-weather__day"><span class="day-date"></span></li>
+                <li class="modal-weather__day"><span class="day-date"></span></li>
+                <li class="modal-weather__day"><span class="day-date"></span></li>
+                <li class="modal-weather__day"><span class="day-date"></span></li>
+            </ul>
+            <div class="modal-weather__day-content weather">
+                <div class="snow hidden"></div>
+                <div class="snow1 hidden"></div>
+                <div class="snow2 hidden"></div>
+                <div class="cloud one hidden"></div>
+                <div class="cloud two hidden"></div>
+                <div class="cloud three hidden"></div>
+                <div class="weather__temperature">
+                    <p class="weather__temperature-day">Днем:
+                        <span id="temperature-day"></span>
+                    </p>
+                    <p class="weather__temperature-night">Ночью:
+                        <span id="temperature-night"></span>
+                    </p>
+                    <p class="weather__temperature-day-feels">Ощущается днем:
+                        <span id="temperature-day-feels"></span>
+                    </p>
+                    <p class="weather__temperature-night-feels">Ощущается ночью:
+                        <span id="temperature-night-feels"></span>
+                    </p>
+                    <p class="weather__discription"><span id="discription"></span></p>
+                </div>
+                <div class="weather__info">
+                    <p class="weather__wind-speed">Cкорость ветра: <span id="wind-speed"></span></p>
+                    <p class="weather__pressure">Давление <span id="pressure"></span></p>
+                    <p class="weather__sunrise">Рассвет: <span id="sunrise"></span></p>
+                    <p class="weather__sunset">Закат: <span id="sunset"></span></p>
+                    <p class="weather__humidity">Влажность: <span id="humidity"></span></p>
+                </div>
+            </div>
+            <button class="modal-weather__close"></button>
+        </section>
     </div>
     <template id="task-template">
         <li class="tasks-containers__task" draggable="true">
@@ -70,5 +152,28 @@
             <button class="tasks-containers-task__delete"></button>
         </li>
     </template>
+    <template id="day-template">
+        <div class="tab-content__wrapper">
+            <div class="tab-content__content-part">
+                <p class="tab-content__date">Дата: <span id="day-date">17.12.21</span></p>
+            </div>
+            <div class="tab-content__content-part">
+                <p class="tab-content__city">Город: <span id="city">Выборг</span></p>
+            </div>
+            <div class="tab-content__content-part">
+                <p class="tab-content__weather">
+                    <button class="tab-content__show-weather" type="button">узнать на 8 дней</button>
+                </p>
+            </div>
+            <div class="tab-content__content-part">
+                <p class="tab-content__rout">Создать маршрут</p>
+                <button class="tab-content__hand-rout" type="button">Вручную</button>
+                <button class="tab-content__auto-rout" type="button">Автоматически</button>
+            </div>
+        </div>
+    </template>
+
+    <script src="js/leaflet/leaflet.js"></script>
+    <script src="leaflet-routing-machine-3.2.12/dist/leaflet-routing-machine.js"></script>
     <script src="js/main.js" type="module"></script>
 </body>

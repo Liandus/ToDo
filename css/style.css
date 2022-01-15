@@ -1,7 +1,7 @@
 * {
-	padding: 0px;
-	margin: 0px;
-	border: 0px;
+	padding: 0;
+	margin: 0;
+	border: 0;
 }
 
 *,
@@ -76,12 +76,11 @@ h6 {
 }
 .container {
 	width: 1200px;
-	padding: 0px 20px 0px 20px;
+	padding: 0 20px 0 20px;
 	margin: 0 auto;
 }
 
 body {
-	color: #000;
 	font-size: 20px;
 	line-height: 100%;
 	background-color: rgb(217, 235, 236);
@@ -112,7 +111,7 @@ body {
 .header__title {
 	text-align: center;
 	color: white;
-	padding: 20px 0px 20px 0px;
+	padding: 20px 0 20px 0;
 }
 
 .tasks__form {
@@ -129,7 +128,7 @@ body {
 
 .form__label {
 	text-align: center;
-	font-size: 20px;
+	font-size: 15px;
 }
 
 .input-wrapper {
@@ -145,6 +144,15 @@ body {
 	border: 2px solid rgb(9, 40, 175);
 	border-radius: 5px;
 }
+
+.form__addbutton:hover,
+.form__addbutton:focus {
+	transition: all 0.3s ease-out;
+	border: 2px solid rgb(201, 23, 177);
+}
+
+
+
 .form__addbutton::after {
 	position: absolute;
 	display: block;
@@ -192,11 +200,23 @@ body {
 	border-radius: 5px;
 }
 
+#task:hover,
+#task:focus {
+	transition: all 0.3s ease-out;
+	border: 2px solid rgb(201, 23, 177);
+}
+
 #type {
 	padding: 5px;
 	width: 150px;
 	border: 2px solid rgb(9, 40, 175);
 	border-radius: 5px;
+}
+
+#type:hover,
+#type:focus {
+	transition: all 0.3s ease-out;
+	border: 2px solid rgb(201, 23, 177);
 }
 
 .tasks-containers__container {
@@ -268,3 +288,534 @@ body {
 	background-size: contain;
 	transition: all 0.3s ease 0s;
 }
+
+.vacation-holiday__form {
+	display: flex;
+	flex-direction: column;
+	row-gap: 5px;
+}
+
+.vacation-holiday__title {
+	padding: 30px;
+	text-align: center;
+	font-size: 30px;
+}
+
+.vacation-holiday__map-wrapper {
+	display: flex;
+	column-gap: 85px;
+	flex-wrap: wrap;
+}
+
+.vacation-holiday__map {
+	min-height: 400px;
+	min-width: 1160px;
+	background-color: rgb(75, 65, 65);
+	border: 2px solid rgb(9, 40, 175);
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+/*.vacation-holiday__map.active {
+	position: fixed;
+	top:10%;
+	left: 20%;
+	z-index: 2;
+	animation: extension  5s 1 linear forwards;
+	background-color: grey;
+	height: 500px;
+	width: 1000px;
+}*/
+
+.vacation-holiday__map-controls{
+	height: 249px;
+	width: 400px;
+	background-color: rgb(174, 198, 209);
+	border: 2px solid rgb(9, 40, 175);
+	border-radius: 5px;
+}
+
+.form__element-date {
+	display: flex;
+	flex-direction: column;
+	row-gap: 5px;
+}
+
+.form__button {
+	padding: 2px;
+	width: min-content;
+	margin: 15px auto 5px auto;
+	border: 2px solid rgb(9, 40, 175);
+	background-color: aqua;
+	border-radius: 5px;
+}
+
+#start-date {
+	border: 2px solid rgb(9, 40, 175);
+}
+
+#end-date {
+	border: 2px solid rgb(9, 40, 175);
+}
+
+#destination {
+	margin-top: 15px;
+	padding-left: 5px;
+	font-size: 13px;
+	border: 2px solid rgb(9, 40, 175);
+}
+
+.form__submit:hover,
+.form__submit:focus,
+.form__button:hover,
+.form__button:focus,
+#start-date:hover,
+#start-date:focus,
+#end-date:hover,
+#end-date:focus,
+#destination:hover,
+#destination:focus {
+	transition: all 0.3s ease-out;
+	border: 2px solid rgb(201, 23, 177);
+}
+
+.form__submit {
+	align-self:center;
+	background-color: tomato;
+	width: 160px;
+	height: 20px;
+	border: 2px solid rgb(9, 40, 175);
+}
+
+.vacation-holiday__days {
+	height: 249px;
+	width: 400px;
+	background-color: rgb(174, 198, 209);
+	border: 2px solid rgb(9, 40, 175);
+	border-radius: 5px;
+}
+
+.vacation-holiday__sub-title {
+	margin:90px 50px;
+	text-align: center;
+	display: inline-block;
+	padding: 20px 20px;
+	border: 2px dashed rgb(2, 5, 19);
+	border-radius: 5px;
+	font-size: 25px;
+}
+
+#tabs {
+	padding: 2px;
+}
+
+#tabs .vacation-holiday__tab {
+    display: inline-block;
+    font-size: 10px;
+    padding: 0 5px;
+    cursor: pointer;
+    position: relative;
+    z-index:5;
+}
+
+#tabs .whiteborder {
+   	border: 1px solid #707070;
+    border-bottom: 1px solid rgb(174, 198, 209);
+    border-radius: 3px 3px 0  0;
+}
+
+#tabs .vacation-holiday__tab-content {
+    width: 100%;
+    height: 219px;
+    border: 1px solid #707070;
+    position: relative;
+    top: -1px;
+    z-index:1;
+    padding: 10px;
+    border-radius: 0 0 3px 3px
+}
+
+#tabs .hide {
+    display: none;
+}
+
+#tabs .show {
+    display: block;
+}
+
+.hidden {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+.tab-content__content-part {
+	margin: 10px 10px;
+	border-bottom: black 2px solid;
+}
+
+.modal-weather {
+	position: fixed;
+	top: 30%;
+	left: 25%;
+	z-index: 1000;
+	overflow: hidden;
+	background-color: rgb(174, 198, 209);
+	display: flex;
+	flex-direction: column;
+	padding: 5px;
+	width: 700px;
+	border: solid 2px rgb(175, 29, 29);
+	box-shadow: 0 0 4px 6px rgba(138, 142, 155, 0.70);
+}
+
+.modal-weather__daylist {
+	position: relative;
+	text-align: center;
+	display: flex;
+	margin: 0 auto 15px auto;
+	border: solid 1px rgba(39, 34, 34);
+}
+
+.modal-weather__daylist::after {
+	position: absolute;
+	content: '';
+	width: 650px;
+	height: 2px;
+	top: 30px;
+    right: -44px;
+	background-color: rgb(2, 10, 26);
+}
+
+.modal-weather__day {
+	padding: 2px;
+	font-size: 13px;
+	background-color: bisque;
+	border-right: solid 1px rgb(68, 10, 10);
+	cursor: pointer;
+}
+
+.modal-weather__daylist :last-child {
+	border: none;
+}
+
+.modal-weather__day:focus,
+.modal-weather__day:hover {
+	color: white;
+	background-color: rgb(94, 54, 5);
+}
+
+.weather__temperature {
+	display: grid;
+	width: 440px;
+	grid-template-columns: 200px 200px;
+	font-size: 15px;
+	text-align: center;
+	margin: 0 auto;
+	padding: 20px;
+	justify-self:center;
+}
+
+.weather__temperature span {
+	color: white;
+}
+
+.weather.clouds span {
+	color: orange;
+}
+
+.weather__discription {
+	grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.weather__info {
+	display: flex;
+	background-color:  rgba(128, 128, 128, 0.3);
+	justify-content: space-around;
+	font-size: 13px;
+	padding: 10px;
+}
+
+.weather__info p {
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.weather__info span {
+	color: white;
+	font-size: 16px;
+}
+
+.modal-weather__close {
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-color: transparent;
+	left: 96%;
+}
+
+.modal-weather__close::after {
+	position: absolute;
+	content: '';
+	width: 2px;
+	top: 2px;
+	transform: rotate(45deg);
+	height: 19px;
+	background-color: red;
+}
+
+.modal-weather__close::before {
+	position: absolute;
+	content: '';
+	width: 2px;
+	top: 2px;
+	transform: rotate(-45deg);
+	height: 19px;
+	background-color: red;
+}
+
+.modal-weather.hidden {
+	display: none;
+}
+
+.modal-weather.show {
+	display: flex;
+}
+
+.red {
+	background-color: red;
+}
+
+.snow {
+	background-image: url("../images/snowflake.svg");
+	background-repeat: repeat, repeat;
+	width: 100%;
+	height: 160px;
+	left: 0;
+	top: 30px;
+	animation: snowfall1 10s infinite linear;
+	position: absolute;
+}
+
+.snow1 {
+	background-image: url("../images/snowflake.svg");
+	background-repeat: repeat;
+	animation: snowfall2 20s infinite linear;
+	position: absolute;
+	left: 40px;
+	top: 30px;
+	width: 100%;
+	height: 160px;
+}
+
+.snow2 {
+	background-image: url("../images/snowflake.svg");
+	background-repeat: repeat;
+	animation: snowfall3 16s infinite linear;
+	position: absolute;
+	left: 20px;
+	top: 30px;
+	width: 100%;
+	height: 160px;
+}
+
+.rain {
+	background-image: url("../images/rain.png");
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	animation: rain 0.3s linear infinite;
+}
+
+.clear {
+	background-color: transparent;
+	position: relative;
+}
+
+.clear::after {
+	content: "";
+	width: 50px;
+	height: 50px;
+	z-index: -1;
+	top: 0;
+	right: 75px;
+	position: absolute;
+	background-color: #FFDE00;
+	border-radius: 50%;
+	box-shadow:
+		0 0 0 10px #FFDE0080,
+		0 0 0 20px #FFDE0040,
+		0 0 0 30px #FFDE0020,
+		0 0 0 40px #FFDE0010,
+		0 0 0 50px #FFDE0000,
+		0 0 20px 50px #FFDE0010;
+	animation:
+		sunrise 2s infinite linear forwards,
+		rays 2s 2s infinite linear;
+}
+
+.cloud.one {
+	z-index: -1;
+	top: 60%;
+	width: 150px;
+	height: 50px;
+}
+  
+.cloud.two {
+	z-index: -1;
+	top: 35%;
+	width: 30px;
+	height: 10px;
+	animation-duration: 10s;
+}
+  
+.cloud.three {
+	z-index: -1;
+	top: 27%;
+	width: 60px;
+	height: 20px;
+	animation-duration: 8s;
+  }
+  
+.cloud {
+	position: absolute;
+	left: 0;
+	background: white;
+	border-radius: 1000px;
+	animation: zoomies 8s infinite linear;
+}
+  
+.cloud::before {
+	content: "";
+	position: absolute;
+	top: -80%;
+	left: 10%;
+	width: 50%;
+	height: 150%;
+	background: white;
+	border-radius: 50%;
+  }
+  
+.cloud::after {
+	content: "";
+	position: absolute;
+	top: -40%;
+	right: 20%;
+	width: 30%;
+	height: 100%;
+	background: white;
+	border-radius: 50%;
+}
+  
+@keyframes zoomies {
+	from {
+	  left: 0;
+	  transform: translateX(-100%);
+	}
+  
+	to {
+	  left: 100%;
+	  transform: translateX(0%);
+	}
+}
+  
+
+@keyframes snowfall1 {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: 100px 140px;
+	}
+}
+
+@keyframes snowfall2 {
+	0% {
+		background-position: 0 -100px;
+	}
+	50% {
+		background-position: 30px 0;
+	}
+	100% {
+		background-position: 0 140px;
+	}
+}
+
+@keyframes snowfall3 {
+	0% {
+		background-position: 0 100px;
+	}
+	100% {
+		background-position: 50px 140px;
+	}
+}
+
+@keyframes rain {
+	0% {
+		background-position: 0 0;
+	}
+	100% {
+		background-position: -20% -100%;
+	}
+}
+
+@keyframes sunrise {
+	0% {
+		box-shadow: none;
+	}
+}
+
+@keyframes rays {
+	0% {
+		box-shadow: 
+		0 0 0 0 #FFDE0080,
+		0 0 0 10px #FFDE0080,
+		0 0 0 20px #FFDE0040,
+		0 0 0 30px #FFDE0020,
+		0 0 0 40px #FFDE0010,
+		0 0 20px 50px #FFDE0010;
+	}
+	100% {
+		box-shadow: 
+		0 0 0 10px #FFDE0080,
+		0 0 0 20px #FFDE0040,
+		0 0 0 30px #FFDE0020,
+		0 0 0 40px #FFDE0010,
+		0 0 0 50px #FFDE0000,
+		0 0 20px 50px #FFDE0010;
+	}
+}
+
+/*@keyframes extension {
+	0% {
+		min-height: 400px;
+		min-width: 600px;
+	}
+	100% {
+		min-height: 400px;
+		min-width: 800px;
+	}
+}
+/*
+.vacation-holiday__map {
+	height: 400px;
+	width: 600px;
+	background-color: rgb(75, 65, 65);
+	border: 2px solid rgb(9, 40, 175);
+	border-radius: 5px;
+}
+
+.vacation-holiday__map.active {
+	position: fixed;
+	top:10%;
+	left: 20%;
+	z-index: 2;
+	background-color: grey;
+	height: 500px;
+	width: 1000px;
+}*/

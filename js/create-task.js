@@ -59,8 +59,23 @@ const onTaskAddClick = () => {
     changeCount();
 };
 
+const onTaskInput = () => {
+    const onDocumentKeydown = (evt) => {
+       if  (evt.key === 'Enter') {
+        evt.preventDefault();
+        showTask();
+        resetTask();
+        changeCount();
+       };
+    }
+    document.addEventListener('keydown', onDocumentKeydown);
+};
+
+taskInput.addEventListener('input', onTaskInput)
+
 const setTaskListener = () => {
     taskAddEl.addEventListener('click', onTaskAddClick);
+    taskInput.addEventListener('input', onTaskInput);
 };
 
 export {setTaskListener, changeCount, taskContainers};
